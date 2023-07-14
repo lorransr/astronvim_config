@@ -18,12 +18,13 @@ return {
   },
 
   -- Set colorscheme to use
-  colorscheme = "astrodark",
+  colorscheme = "gruvbox-material",
 
   -- Diagnostics configuration (for vim.diagnostics.config({...})) when diagnostics are on
   diagnostics = {
     virtual_text = true,
     underline = true,
+    update_in_insert = false
   },
 
   lsp = {
@@ -69,17 +70,11 @@ return {
   -- augroups/autocommands and custom filetypes also this just pure lua so
   -- anything that doesn't fit in the normal config locations above can go here
   polish = function()
-    -- Set up custom filetypes
-    -- vim.filetype.add {
-    --   extension = {
-    --     foo = "fooscript",
-    --   },
-    --   filename = {
-    --     ["Foofile"] = "fooscript",
-    --   },
-    --   pattern = {
-    --     ["~/%.config/foo/.*"] = "fooscript",
-    --   },
-    -- }
+    vim.g.gruvbox_material_background                = "medium"
+    vim.g.gruvbox_material_enable_bold               = 1
+    vim.g.gruvbox_material_enable_italic             = 1
+    vim.g.gruvbox_material_diagnostic_text_highlight = 1
+
+    vim.cmd "syntax reset"
   end,
 }
