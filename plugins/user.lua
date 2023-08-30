@@ -4,6 +4,31 @@ return {
     ft = { "jenkinsfile" },
   },
   {
+    "ThePrimeagen/vim-be-good",
+     cmd = {"VimBeGood"}
+  },
+  {
+    "epwalsh/obsidian.nvim",
+     lazy = true,
+     event = { "BufReadPre Users/lorranrodrigues/gupy/lorran_obsidian/**.md" },
+     dependencies = {"nvim-lua/plenary.nvim"},
+     opts = {
+        dir = "~/gupy/lorran_obsidian",
+        daily_notes = {
+          folder = "daily",
+          date_format = "%Y-%m-%d"
+        },
+        templates = {
+          subdir = "templates/daily",
+          date_format = "%Y-%m-%d-%a",
+          time_format = "%H:%M",
+        },
+        mappings = {
+          -- ["gf"] = require("obsidian.mapping").gf_passthrough(),
+          },
+      },
+  },
+  {
     "towolf/vim-helm",
     event = { "BufRead *.yaml", "BufRead *.tpl" },
   },

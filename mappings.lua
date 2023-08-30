@@ -1,6 +1,24 @@
 local tabpre = "<leader><tab>"
 local runtest = "<leader>t"
 
+local n_keymap = function(lhs, rhs)
+    vim.api.nvim_set_keymap('n', lhs, rhs, { noremap = true, silent = true })
+end
+
+n_keymap("<C-d>","<C-d>zz")
+n_keymap("<C-u>","<C-u>zz")
+n_keymap("n","nzzzv")
+n_keymap("N","Nzzzv")
+
+vim.keymap.set("n", "gf", function()
+  if require("obsidian").util.cursor_on_markdown_link() then
+    return "<cmd>ObsidianFollowLink<CR>"
+  else
+    return "gf"
+  end
+end, { noremap = false, expr = true })
+
+
 -- Mapping data with "desc" stored directly by vim.keymap.set().
 --
 -- Please use this mappings table to set keyboard mapping since this is the
