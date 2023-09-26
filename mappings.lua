@@ -1,5 +1,6 @@
 local tabpre = "<leader><tab>"
 local runtest = "<leader>t"
+local find = "<leader>f"
 
 local n_keymap = function(lhs, rhs)
     vim.api.nvim_set_keymap('n', lhs, rhs, { noremap = true, silent = true })
@@ -18,8 +19,17 @@ vim.keymap.set("n", "gf", function()
   end
 end, { noremap = false, expr = true })
 
+-- yoink
+--
+vim.keymap.set({"n","x"}, "p", "<Plug>(YankyPutAfter)")
+vim.keymap.set({"n","x"}, "P", "<Plug>(YankyPutBefore)")
+vim.keymap.set({"n","x"}, "gp", "<Plug>(YankyGPutAfter)")
+vim.keymap.set({"n","x"}, "gP", "<Plug>(YankyGPutBefore)")
 
+vim.keymap.set("n", "<c-n>", "<Plug>(YankyCycleForward)")
+vim.keymap.set("n", "<c-p>", "<Plug>(YankyCycleBackward)")
 -- Mapping data with "desc" stored directly by vim.keymap.set().
+--
 --
 -- Please use this mappings table to set keyboard mapping since this is the
 -- lower level configuration and more robust one. (which-key will
@@ -27,6 +37,9 @@ end, { noremap = false, expr = true })
 return {
   -- first key is the mode
   n = {
+      -- yanky
+      [find .. "y"] = {"<cmd>YankyRingHistory<cr>" ,desc = "Find yank" },
+
       ["<leader>N"] = { "<cmd>tabnew<cr>", desc = "New Tab" },
       -- tabs
       [tabpre] = { desc = "󰓩 Tab Managment" },
