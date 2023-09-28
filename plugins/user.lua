@@ -38,7 +38,7 @@ return {
   },
   {
     "epwalsh/obsidian.nvim",
-     lazy = true,
+     lazy = false,
      event = { "BufReadPre Users/lorranrodrigues/gupy/lorran_obsidian/**.md" },
      dependencies = {"nvim-lua/plenary.nvim"},
      opts = {

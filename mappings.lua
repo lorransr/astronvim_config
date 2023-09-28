@@ -39,6 +39,9 @@ return {
   n = {
       -- yanky
       [find .. "y"] = {"<cmd>YankyRingHistory<cr>" ,desc = "Find yank" },
+      -- obsidian
+      [find .. "O"] = {"<cmd>ObsidianSearch<cr>" ,desc = "Find obsidian" },
+      ["<leader>O"] = { "<cmd>ObsidianToday<cr>", desc = "Obsidian Today Note" },
 
       ["<leader>N"] = { "<cmd>tabnew<cr>", desc = "New Tab" },
       -- tabs
