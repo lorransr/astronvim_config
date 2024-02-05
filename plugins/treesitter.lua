@@ -6,7 +6,7 @@ return {
       enable = true,
     },
     highlight = {
-      disable = { "yaml", "css" },
+      disable = { "yaml", "css", "json"},
       additional_vim_regex_highlighting = true,
     },
     indent = { enable = true, disable = { "python" } },

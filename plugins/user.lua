@@ -4,8 +4,27 @@ return {
     ft = { "jenkinsfile" },
   },
   {
+    "godlygeek/tabular",
+  },
+  {
     "ThePrimeagen/vim-be-good",
      cmd = {"VimBeGood"}
+  },
+  {
+    "LunarVim/bigfile.nvim",
+    lazy = false,
+    filesize = 1,
+    pattern = { "*" },
+    features = { -- features to disable
+      "indent_blankline",
+      "illuminate",
+      "lsp",
+      "treesitter",
+      "syntax",
+      "matchparen",
+      "vimopts",
+      "filetype",
+    }
   },
   {
       "gbprod/yanky.nvim",

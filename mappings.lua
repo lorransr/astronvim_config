@@ -8,8 +8,14 @@ end
 
 n_keymap("<C-d>","<C-d>zz")
 n_keymap("<C-u>","<C-u>zz")
+n_keymap("<PageUp>","<PageUp>zz")
+n_keymap("<PageDown>","<PageDown>zz")
 n_keymap("n","nzzzv")
 n_keymap("N","Nzzzv")
+n_keymap("H","^")
+n_keymap("L","$")
+n_keymap("J","}")
+n_keymap("K","{")
 
 vim.keymap.set("n", "gf", function()
   if require("obsidian").util.cursor_on_markdown_link() then
