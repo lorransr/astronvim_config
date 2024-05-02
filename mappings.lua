@@ -34,6 +34,7 @@ vim.keymap.set({"n","x"}, "gP", "<Plug>(YankyGPutBefore)")
 
 vim.keymap.set("n", "<c-n>", "<Plug>(YankyCycleForward)")
 vim.keymap.set("n", "<c-p>", "<Plug>(YankyCycleBackward)")
+
 -- Mapping data with "desc" stored directly by vim.keymap.set().
 --
 --
