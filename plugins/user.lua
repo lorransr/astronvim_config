@@ -37,7 +37,6 @@ return {
   -- If you want to use the interactive feature of the `Subs` command right away, text-case.nvim
   -- has to be loaded on startup. Otherwise, the interactive feature of the `Subs` will only be
   -- available after the first executing of it or after a keymap of text-case.nvim has been used.
-  lazy = false,
   },
   {
     "ThePrimeagen/vim-be-good",
@@ -45,7 +44,6 @@ return {
   },
   {
     "LunarVim/bigfile.nvim",
-    lazy = false,
     filesize = 1,
     pattern = { "*" },
     features = { -- features to disable
@@ -61,7 +59,7 @@ return {
   },
   {
       "gbprod/yanky.nvim",
-      lazy = false,
+      lazy=false,
       opts = {
         highlight = {
           on_put = true,
@@ -80,7 +78,6 @@ return {
       },
       telescope = {
         use_default_mappings = true, -- if default mappings should be used
-        mappings = nil, -- nil to use default mappings or no mappings (see `use_default_mappings`)
       },
     },
     system_clipboard = {
@@ -89,9 +86,15 @@ return {
     }
   },
   {
+  "folke/tokyonight.nvim",
+  lazy = false,
+  priority = 1000,
+  opts = {},
+  },
+  {
     "epwalsh/obsidian.nvim",
-     lazy = false,
      event = { "BufReadPre Users/lorranrodrigues/gupy/lorran_obsidian/**.md" },
+     cmd = { "ObsidianToday", "ObsidianSearch" },
      dependencies = {"nvim-lua/plenary.nvim"},
      opts = {
         dir = "~/gupy/lorran_obsidian",
@@ -104,7 +107,7 @@ return {
           date_format = "%Y-%m-%d-%a",
           time_format = "%H:%M",
         },
-        mappings = {
+        mappings = { 
           -- ["gf"] = require("obsidian.mapping").gf_passthrough(),
           },
       },
@@ -150,19 +153,58 @@ return {
   },
   {
     'cappyzawa/trim.nvim',
-    lazy = false,
     opts = {
       trim_on_write = true,
     }
   },
   { "mbbill/undotree", event = "User AstroFile" },
   {
+    'kevinhwang91/nvim-ufo', requires = 'kevinhwang91/promise-async' ,lazy=false },
+  {
+      'kristijanhusak/vim-dadbod-ui',
+  dependencies = {
+    { 'tpope/vim-dadbod' },
+    { 'kristijanhusak/vim-dadbod-completion', ft = { 'sql', 'mysql', 'plsql' } },
+  },
+  cmd = {
+    'DBUI',
+    'DBUIToggle',
+    'DBUIAddConnection',
+    'DBUIFindBuffer',
+  },
+  init = function()
+    -- Your DBUI configuration
+    vim.g.db_ui_use_nerd_fonts = 1
+  end
+  },
+  { "nvim-neotest/nvim-nio" },
+  { 'https://codeberg.org/esensar/nvim-dev-container',
+    dependencies = 'nvim-treesitter/nvim-treesitter',
+    cmd = {
+      "DevcontainerStart",
+      "DevcontainerAttach",
+      "DevcontainerExec",
+      "DevcontainerStop",
+      "DevcontainerStopAll",
+      "DevcontainerRemoveAll",
+      "DevcontainerLogs",
+      "DevcontainerEditNearestConfig",
+
+    }
+  },
+  {
+    "tpope/vim-dotenv",
+    cmd = {"Dotenv"}
+  },
+  {
+    "jay-babu/mason-nvim-dap.nvim",
+  },
+  {
     'lukoshkin/highlight-whitespace',
-    lazy = false,
     opts = {
       tws = '\\s\\+$',
       clear_on_winleave = false,
-      user_palette = {
+      palette = {
         markdown = {
           tws = 'RosyBrown',
         },
